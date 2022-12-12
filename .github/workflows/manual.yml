@@ -15,8 +15,8 @@ on:
       use-emoji:
         type: boolean
         description: Include  emojis
-      environment:
-        type: environment
+     # environment:
+      #  type: environment
 
 jobs:
   greet:
