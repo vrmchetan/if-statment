@@ -11,7 +11,7 @@ on:
         - pawan
         - shivam
       message:
-        required: false
+        required: true
       use-emoji:
         type: boolean
         description: Include  emojis
