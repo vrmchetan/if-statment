@@ -7,8 +7,9 @@ on:
         type: choice
         description: Who to greet
         options: 
-        - monalisa
-        - cschleiden
+        - chetan
+        - pawan
+        - shivam
       message:
         required: true
       use-emoji:
