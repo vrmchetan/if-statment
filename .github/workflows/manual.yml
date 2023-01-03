@@ -7,9 +7,14 @@ on:
         type: choice
         description: Who to greet
         options: 
-        - chetan1
-        - pawan
         - shivam
+    inputs:
+      name:
+        type: choice
+        description: Welcome
+        options: 
+        - pawan
+        
       message:
         required: true
       use-emoji:
