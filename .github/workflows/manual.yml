@@ -7,7 +7,7 @@ on:
         type: choice
         description: Who to greet
         options: 
-        - chetan
+        - chetan1
         - pawan
         - shivam
       message:
