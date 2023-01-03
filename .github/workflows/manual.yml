@@ -8,12 +8,14 @@ on:
         description: Who to greet
         options: 
         - shivam
+        - chetan
     inputs:
       name:
         type: choice
         description: Welcome
         options: 
         - pawan
+        - varun
         
       message:
         required: true
