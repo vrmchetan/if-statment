@@ -1,24 +1,27 @@
-job-a:
-    name: job-a
+name: Mixed inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - chetan1
+        - pawan
+        - shivam
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include  emojis
+     # environment:
+      #  type: environment
+
+jobs:
+  greet:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.job-name == github.job }}
+
     steps:
-    - name: Print something
-      if: ${{ github.event.inputs.job-name == github.job }}
-      run: |
-        echo ${{ github.job }}
-        echo ${{ github.event.inputs.job-name == github.job }}
-        echo ${{ github.event.inputs.job-name }} ${{ github.job }}
-        
-        
- job-b:
-    name: job-b
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.job-name == github.job }}
-    steps:
-    - name: Print something
-      if: ${{ github.event.inputs.job-name == github.job }}
-      run: |
-        echo ${{ github.job }}
-        echo ${{ github.event.inputs.job-name == github.job }}
-        echo ${{ github.event.inputs.job-name }} ${{ github.job }}
+    - name: Send greeting
+      run: echo "${{ github.event.inputs.message }}  ${{ github.event.inputs.name }}"
