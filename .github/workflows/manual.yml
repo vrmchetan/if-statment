@@ -1,34 +1,20 @@
-name: Mixed inputs
-
 on:
   workflow_dispatch:
     inputs:
-      name:
+      env:
+        description: 'Select the Environment'
         type: choice
-        description: Who to greet
-        options: 
-        - shivam
-        - chetan
-    inputs:
-      name:
-        type: choice
-        description: Welcome
-        options: 
-        - pawan
-        - varun
-        
-      message:
         required: true
-      use-emoji:
-        type: boolean
-        description: Include  emojis
-     # environment:
-      #  type: environment
-
-jobs:
-  greet:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Send greeting
-      run: echo "${{ github.event.inputs.message }}  ${{ github.event.inputs.name }}"
+        options:
+        - SIT
+        - UAT
+      op:
+        description: 'Deploy or Delete Apps'
+        type: choice
+        required: true
+        options:
+        - Deploy
+        - Delete
+      ver:
+        description: 'Type the app version'
+        required: true
