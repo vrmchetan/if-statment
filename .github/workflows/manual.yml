@@ -1,30 +1,26 @@
-name: test if conditions
+name: Mixed inputs
 
 on:
-  push:
-    branches: [master, test]
-
-env:
-  TEST_BRANCH: "test"
-  EMPTY_VALUE: ""
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - chetan1
+        - pawan
 
 jobs:
   test-conditions:
     runs-on: ubuntu-latest
 
     steps:
-      - name: simple evaluation on master
-        if: github.ref == 'refs/heads/master'
-        run: echo "runs"
+      - name: simple evaluation on chetan1
+        if: github.input == 'chetan1'
+        run: echo "chetan kumar"
 
-      - name: simple evaluation on test
-        if: github.ref == 'refs/heads/test'
-        run: echo "runs"
+      - name: simple evaluation on pawan
+        if: github.input == 'pawan'
+        run: echo "pawan kumar"
 
-      - name: false positive with expression syntac evaluation
-        if: github.ref == 'refs/head/${{ env.TEST_BRANCH }}' # this condition is ignored or is evaluated as false positive
-        run: echo "runs"
-
-      - name: false positive with expression syntac evaluation
-        if: false && '${{ env.EMPTY_VALUE }}' # this condition is ignored or is evaluated as false positive
-        run: echo "runs"
+      
