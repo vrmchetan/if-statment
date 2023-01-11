@@ -1,42 +1,32 @@
-name: Test 7
+name: Mixed inputs
 
 on:
   workflow_dispatch:
     inputs:
-      job-name:
-        description: 'Job id'
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - chetan
+        - pawan
+      message:
         required: true
+      use-emoji:
+        type: boolean
+        description: Include  emojis
+     # environment:
+      #  type: environment
 
 jobs:
+  if: github.event.input== 'chetan'
+  runs-on: ubuntu-latest
 
-  job-a:
-    name: job-a
-    runs-on: ubuntu-latest
-    # if: ${{ github.event.inputs.job-name == github.job }}
     steps:
-    - name: Print something
-      if: ${{ github.event.inputs.job-name == github.job }}
-      run: |
-        echo ${{ github.job }}
-        echo ${{ github.event.inputs.job-name == github.job }}
-        echo ${{ github.event.inputs.job-name }} ${{ github.job }}
+    - name: Send greeting
+      run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
+   if: github.event.input== 'pawan'
+  runs-on: ubuntu-latest
 
-  job-b:
-    name: job-b
-    if: ${{ github.event.inputs.job-name == github.job }}
-    runs-on: ubuntu-latest
     steps:
-    - name: Print something
-      run: |
-        echo ${{ github.job }}
-        echo ${{ github.event.inputs.job-name == github.job }}
-
-  job-c:
-    name: job-c
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print something
-      run: |
-        echo ${{ github.job }}
-        echo ${{ github.event.inputs.job-name == github.job }}
-        echo ${{ github.event.inputs.job-name == github.job.name }}
+    - name: Send greeting
+      run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
