@@ -4,17 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        type: choice
+        type: string
         description: Who to greet
-        options: 
-        - chetan
-        - pawan
+        required: true
 jobs:
   greet:
      runs-on: ubuntu-latest
      
      steps:
-     - if: ${{ github.event.inputs.chetan }}
-       run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-     - if: ${{ github.event.inputs.pawan }}
-       run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
+     - if: ${{ github.event.inputs.name == 'chetan' }}
+       run: echo "Hi! chetan this side."
+     - if: ${{ github.event.inputs.name == 'pawan' }}
+       run: echo "Hi! pawan this side."
