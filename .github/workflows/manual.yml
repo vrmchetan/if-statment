@@ -20,10 +20,9 @@ on:
 jobs:
   greet:
      runs-on: ubuntu-latest
-     env:
-      github_inputs: $github.inputs
+     
      steps:
-     - if: ${{github.inputs == 'chetan'}}
+     - if: github.event.inputs == 'chetan'
        run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-     - if: ${{github.inputs == 'pawan'}}
+     - if: github.event.inputs == 'pawan'
        run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
