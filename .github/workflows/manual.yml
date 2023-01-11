@@ -18,7 +18,7 @@ on:
       #  type: environment
 
 jobs:
-  test-conditions:
+  greet:
     runs-on: ubuntu-latest
 
     steps:
