@@ -24,7 +24,8 @@ jobs:
     steps:
     - name: Send greeting
       run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-   if: github.event.input== 'pawan'
+  
+  if: github.event.input== 'pawan'
   runs-on: ubuntu-latest
 
     steps:
