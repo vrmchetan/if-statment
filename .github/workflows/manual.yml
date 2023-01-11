@@ -1,26 +1,32 @@
-name: Mixed inputs
-
 on:
   workflow_dispatch:
     inputs:
-      name:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning' 
         type: choice
-        description: Who to greet
-        options: 
-        - chetan1
-        - pawan
+        options:
+        - info
+        - warning
+        - debug 
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true 
+        type: boolean 
+      tags:
+        description: 'Test scenario tags'
+        required: true 
+        type: string
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true 
 
 jobs:
-  test-conditions:
+  print-tag:
     runs-on: ubuntu-latest
-
+    if:  ${{ inputs.print_tags }} 
     steps:
-      - name: simple evaluation on chetan1
-        if: github.input == 'chetan1'
-        run: echo "chetan kumar"
-
-      - name: simple evaluation on pawan
-        if: github.input == 'pawan'
-        run: echo "pawan kumar"
-
-      
+      - name: Print the input tag to STDOUT
+        run: echo  The tags are ${{ inputs.tags }}
