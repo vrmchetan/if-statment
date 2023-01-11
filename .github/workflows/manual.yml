@@ -21,7 +21,7 @@ jobs:
   greet:
      runs-on: ubuntu-latest
      steps:
-     - if: ${{github.input == 'chetan'}}
+     - if: ${{github.event.inputs == 'chetan'}}
        run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-     - if: ${{github.input == 'pawan'}}
+     - if: ${{github.event.inputs == 'pawan'}}
        run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
