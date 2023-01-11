@@ -18,13 +18,15 @@ on:
       #  type: environment
 
 jobs:
-  runs-on: ubuntu-latest
+  test-conditions:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Send greeting
-      if: github.event.input== 'chetan'
-      run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-  steps:
-    - name: Send greeting
-      if: github.event.input== 'pawan'
-      run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
+      - name: hii this side chetan
+        if: github.event.input == 'chetan'
+        run: echo "runs"
+
+      - name: simple evaluation on test
+        if: github.ref == 'refs/heads/test'
+        run: echo "runs"
+  
