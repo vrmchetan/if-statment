@@ -9,14 +9,6 @@ on:
         options: 
         - chetan
         - pawan
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include  emojis
-     # environment:
-      #  type: environment
-
 jobs:
   greet:
      runs-on: ubuntu-latest
