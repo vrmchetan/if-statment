@@ -24,9 +24,8 @@ jobs:
     steps:
       - name: hii this side chetan
         if: github.event.input == 'chetan'
-        run: echo "runs"
-
-      - name: simple evaluation on test
+        run: echo "${{ github.event.inputs.message }}  ${{ github.event.inputs.name }}"
+      - name: hii this side pawan 
         if: github.event.input == 'pawan'
-        run: echo "runs"
+        run: echo "${{ github.event.inputs.message }}  ${{ github.event.inputs.name }}"
   
