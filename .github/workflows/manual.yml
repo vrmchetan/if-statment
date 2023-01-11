@@ -22,7 +22,7 @@ jobs:
      runs-on: ubuntu-latest
      
      steps:
-     - if: github.event.inputs.name == 'chetan'
+     - if: ${{ github.event.inputs.chetan }}
        run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-     - if: github.event.inputs.name == 'pawan'
+     - if: ${{ github.event.inputs.pawan }}
        run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
