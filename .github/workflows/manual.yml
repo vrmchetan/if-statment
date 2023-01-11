@@ -7,8 +7,9 @@ on:
         type: choice
         description: Who to greet
         options: 
-        - chetan
+        - chetan1
         - pawan
+        
       message:
         required: true
       use-emoji:
@@ -18,16 +19,9 @@ on:
       #  type: environment
 
 jobs:
-  if: github.event.input== 'chetan'
-  runs-on: ubuntu-latest
+  greet:
+    runs-on: ubuntu-latest
 
     steps:
     - name: Send greeting
-      run: echo "${{ github.event.inputs.message }} echo "Hi! chetan this side."
-  
-  if: github.event.input== 'pawan'
-  runs-on: ubuntu-latest
-
-    steps:
-    - name: Send greeting
-      run: echo "${{ github.event.inputs.message }} echo "Hi! pawan this side."
+      run: echo "${{ github.event.inputs.message }}  ${{ github.event.inputs.name }}"
