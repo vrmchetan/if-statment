@@ -21,3 +21,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
          - run: echo "Hi! pawan this side."
+         
+    job3:
+        if: ${{ always() }}
+        runs-on: ubuntu-latest
+        needs: [job1, job2]
