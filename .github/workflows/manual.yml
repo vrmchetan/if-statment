@@ -26,3 +26,5 @@ jobs:
     job3:
         runs-on: ubuntu-latest
         needs: [job1, job2]
+        steps:
+         - run: echo "work is not complete"
