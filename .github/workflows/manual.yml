@@ -10,15 +10,16 @@ on:
 jobs:
     job1:
         name: chetan
-        if: github.event.inputs.name == 'chetan'
-        runs-on: ubuntu-latest
+        -if: github.event.inputs.name == 'chetan'
+         runs-on: ubuntu-latest
+        
         steps:
-        - if: ${{ github.event.inputs.name == 'chetan' }}
           run: echo "Hi! chetan this side."
 
-    job2:
-        name: pawan
-        runs-on: ubuntu-latest
+  job2:
+        name: chetan
+        -if: github.event.inputs.name == 'pawan'
+         runs-on: ubuntu-latest
+        
         steps:
-        - if: ${{ github.event.inputs.name == 'pawan' }}
           run: echo "Hi! pawan this side."
