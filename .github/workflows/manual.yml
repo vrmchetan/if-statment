@@ -19,10 +19,10 @@ jobs:
         name: pawan
         if: github.event.inputs.name == 'pawan'
         runs-on: ubuntu-latest
+        needs: job1
         steps:
          - run: echo "Hi! pawan this side."
          
     job3:
-        if: ${{ always() }}
         runs-on: ubuntu-latest
         needs: [job1, job2]
