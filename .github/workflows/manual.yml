@@ -8,11 +8,16 @@ on:
         description: Who to greet
         required: true
 jobs:
-  greet:
-     runs-on: ubuntu-latest
-     
-     steps:
-     - if: ${{ github.event.inputs.name == 'chetan' }}
-       run: echo "Hi! chetan this side."
-     - if: ${{ github.event.inputs.name == 'pawan' }}
-       run: echo "Hi! pawan this side."
+    job1:
+        name: chetan
+        runs-on: ubuntu-latest
+        steps:
+        - if: ${{ github.event.inputs.name == 'chetan' }}
+          run: echo "Hi! chetan this side."
+
+    job2:
+        name: pawan
+        runs-on: ubuntu-latest
+        steps:
+        - if: ${{ github.event.inputs.name == 'pawan' }}
+          run: echo "Hi! pawan this side."
