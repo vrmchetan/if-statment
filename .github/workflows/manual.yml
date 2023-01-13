@@ -10,6 +10,7 @@ on:
 jobs:
     job1:
         name: chetan
+        if: github.event.inputs.name == 'chetan'
         runs-on: ubuntu-latest
         steps:
         - if: ${{ github.event.inputs.name == 'chetan' }}
